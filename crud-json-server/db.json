@@ -19,16 +19,6 @@
       "id": 4,
       "title": "A Tale of Two Cities",
       "author": "Charles Dickens"
-    },
-    {
-      "title": "Nineteen Eighty Four",
-      "author": "George Orwell",
-      "id": 5
-    },
-    {
-      "title": "test",
-      "author": "hello",
-      "id": 6
     }
   ]
 }
