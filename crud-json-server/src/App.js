@@ -55,11 +55,58 @@ class App extends React.Component {
       })
     );
   };
+  getList = (event, id) => {
+    this.setState(
+      {
+        singledata: {
+          title: "Loading...",
+          author: "Loading...",
+        },
+      },
+      () => {
+        fetch("http://localhost:5000/posts/" + id)
+          .then((res) => res.json())
+          .then((result) => {
+            this.setState({
+              singledata: {
+                title: result.title,
+                author: result.author ? result.author : "",
+              },
+            });
+          });
+      }
+    );
+  };
+  updateList = (event, id) => {
+    fetch("http://localhost:5000/posts/" + id, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(this.state.singledata),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        this.setState({
+          singledata: {
+            title: "",
+            author: "",
+          },
+        });
+        this.getList();
+      });
+  };
   render() {
     const listTable = this.state.loading ? (
       <span>Loading Data......Please be patience.</span>
     ) : (
-      <Lists alldata={this.state.alldata} />
+      <Lists
+        alldata={this.state.alldata}
+        singledata={this.state.singledata}
+        getList={this.getList}
+        updateList={this.updateList}
+        handleChange={this.handleChange}
+      />
     );
     return (
       <div className="container">

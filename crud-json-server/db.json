@@ -21,13 +21,13 @@
       "author": "Charles Dickens"
     },
     {
-      "title": "Nineteen Eighty-Four",
+      "title": "Nineteen Eighty Four",
       "author": "George Orwell",
       "id": 5
     },
     {
-      "title": "Hello",
-      "author": "Test",
+      "title": "test",
+      "author": "hello",
       "id": 6
     }
   ]
